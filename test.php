@@ -1,5 +1,8 @@
 <?php
 
-$caractere = substr($sentence, -1);
+$array1 = array("a" => "green", "red", "blue", "red");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_diff($array1, $array2);
 
-echo $caractere("mot");
+var_dump($result)
+?>

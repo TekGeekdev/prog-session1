@@ -36,6 +36,7 @@ function as_letter(string $word, string $letter): bool
     return as_letter(substr($word, 0, -1), $letter);
 }
 
+
 check_expect(as_letter("licorne","r"), true);
 check_expect(as_letter("licorne","z"), false);
 
@@ -55,5 +56,7 @@ function repeat_sentence(int $time_to_repeat, string $sentence = "Pour comprendr
     if ($time_to_repeat == 0) return "";
     return $sentence . repeat_sentence($time_to_repeat -1, $sentence);
 }
+
+
 
 check_expect(repeat_sentence(2), "Pour comprendre la récursion, il faut d'abord comprendre la récursion.\nPour comprendre la récursion, il faut d'abord comprendre la récursion.\n");

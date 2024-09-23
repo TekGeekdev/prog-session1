@@ -1,0 +1,43 @@
+<?php
+
+declare(strict_types=1);
+
+require "check_expect.php";
+
+
+// argument a rentrer : un mot et une lettre
+
+function mot_plus_lettre(string $letter, array $suite_mot):string
+{
+    
+    $maxiumum_lettre = 0 ;
+    $mot_avec_plus_de_lettres = "";
+
+    foreach ($suite_mot as $value){
+        // compte combien de fois la lettre apparement dans un element du tableau
+        $compteur_lettre = substr_count($value, $letter) ;
+
+        // compare et sauvegarde la chaine avec le maximum de caractère
+        if ($compteur_lettre > $maxiumum_lettre) {
+            $maxiumum_lettre = $compteur_lettre ;
+            $mot_avec_plus_de_lettres = $value;
+
+        }
+
+    }
+
+
+    return $mot_avec_plus_de_lettres ;
+}
+
+if ($argc > 2) {
+    $lettre = $argv[1];            // La première lettre passée en argument
+    $mots = array_slice($argv, 2);  // Tous les autres mots passés en argument
+
+    $resultat = mot_plus_lettre($lettre, $mots);
+    echo "Le mot contenant le plus de fois la lettre '$lettre' est '$resultat'.\n";
+} else {
+    echo "Utilisation: php script.php <lettre> <mot1> <mot2> ...\n";
+}
+
+
